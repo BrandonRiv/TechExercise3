@@ -1,3 +1,4 @@
+
 import tkinter
 from tkinter import *
 
@@ -9,9 +10,10 @@ hello_message = tkinter.Message(window, text="Hello World!")
 hello_message.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
 
-def show(): 
-    label.config( text = clicked.get() )
-
+def show():
+    color = clicked.get()
+    window.config(bg=color)
+    label.config(text=f"Background color changed to {color}")
 
 # Dropdown menu options 
 options = [ 
@@ -23,25 +25,22 @@ options = [
     "Pink", 
     "Orange"
 ] 
-  
+
 # datatype of menu text 
 clicked = StringVar() 
-  
-# initial menu text 
-clicked.set( "Choose color" ) 
-  
+
+
+clicked.set("Choose color") 
+
 # Create Dropdown menu 
-drop = OptionMenu( window , clicked , *options ) 
-drop.pack() 
+drop = OptionMenu(window, clicked, *options)
+drop.pack()
 
 
-# Create button, it will change label text 
-button = Button( window , text = "Modify Color" , command = show ).pack() 
+button = Button(window, text="Modify Color", command=show).pack()
 
 # Create Label 
-label = Label( window , text = " ") 
-label.pack() 
+label = Label(window, text=" ")
+label.pack()
 
 window.mainloop()
-
-
